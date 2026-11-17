@@ -1,0 +1,21 @@
+# Never upload participant data by mistake: keep it in data/ or results/
+data/
+results/
+*.xlsx
+*.xls
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+.venv/
+venv/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
