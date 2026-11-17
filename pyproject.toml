@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "climbimu"
+version = "0.1.0"
+description = "Open tools to analyse climbing movement from IMU data: quality checks, cleaning and (soon) entropy."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Noel Marcén-Cinca"}]
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "matplotlib",
+    "pyyaml",
+    "openpyxl",
+]
+keywords = ["climbing", "bouldering", "IMU", "accelerometer", "entropy", "biomechanics", "motor variability"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering",
+    "Development Status :: 2 - Pre-Alpha",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools]
+packages = ["climbimu"]

@@ -1,0 +1,52 @@
+# climbimu configuration example.
+# Copy this file and adapt it to your device and study.
+
+# Which column of your file is each signal. Use null if your file has no such column.
+columns:
+  time: "Tiempo"
+  acc_x: "x (acc)"
+  acc_y: "y (acc)"
+  acc_z: "z (acc)"
+  yaw: "yaw"
+  pitch: "pitch"
+  roll: "roll"
+
+# Units in your file. time: s or ms. acc: g or m/s2. angles: deg or rad.
+units:
+  time: s
+  acc: g
+  angles: deg
+
+# Excel sheet to read (name or position, 0 = first sheet).
+sheet: 0
+
+# Labels for each recording.
+metadata:
+  # How to read the file name. Field names are free. Use null to skip.
+  # Examples: "{climber}_{attempt}", "{climber}_{boulder}_{condition}"
+  filename_pattern: "{climber}_{attempt}"
+  # Optional table (CSV or Excel), one row per file. It overrides the file name.
+  table: null
+  id_column: file
+
+quality:
+  # An interval longer than gap_factor x the normal interval counts as a gap.
+  gap_factor: 3
+
+preprocessing:
+  despike:
+    enabled: true
+    window: 9            # samples
+    n_sigmas: 4          # robust standard deviations
+    min_threshold_g: 0.5    # acceleration: never mark as spike a deviation smaller than this
+    min_threshold_deg: 10   # angles: same idea, in degrees (null = do not clean angles)
+    max_iterations: 5
+  unwrap_angles:
+    enabled: true
+  resample:
+    enabled: true
+    fs: 100              # Hz
+  lowpass:
+    enabled: false       # filtering changes entropy values: report it if used
+    cutoff_hz: 10
+    order: 4

@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "climbimu: open tools to analyse climbing movement from IMU data"
+version: 0.1.0
+date-released: 2026-11-17
+license: MIT
+authors:
+  - family-names: "Marcén-Cinca"
+    given-names: "Noel"
+    affiliation: "Universidad San Jorge"
+    # orcid: "https://orcid.org/0000-0002-2840-9882"
+keywords:
+  - climbing
+  - IMU
+  - entropy
+  - motor variability
