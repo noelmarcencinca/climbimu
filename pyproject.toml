@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "climbimu"
-version = "0.1.0"
+version = "0.2.0"
 description = "Open tools to analyse climbing movement from IMU data: quality checks, cleaning and (soon) entropy."
 readme = "README.md"
 license = {text = "MIT"}

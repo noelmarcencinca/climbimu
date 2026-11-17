@@ -20,7 +20,7 @@ the acceleration magnitude was almost ten times lower with the raw data than
 with the cleaned data, because a few spikes inflated the standard deviation.
 `climbimu` makes these problems visible and fixes them in a transparent way.
 
-## What it does (v0.1.0)
+## What it does (v0.2.0)
 
 * **Reads** Excel or CSV files from any IMU. A small YAML file says which
 column is which and in which units it is.
@@ -69,6 +69,46 @@ print(ci.check\_quality(raw, config).to\_text())
 clean = ci.preprocess(raw, config)
 ci.save\_recording(clean, "results/1\_1\_clean.csv")   # also saves the processing log
 ```
+
+## Segmentation of an attempt
+
+The tool assumes this protocol: the climber stands still, makes a hip
+flexion-extension swing (synchronisation movement), climbs and comes down
+from the top. It finds four events:
+
+| Event | How it is detected |
+|---|---|
+| `swing_start` | the trunk tilt leaves the standing posture |
+| `climb_start` | the trunk tilt rises and stays high (leaning towards the wall) |
+| `climb_end` | start of the last unloading of the body (coming down from the top) |
+| `landing` | first impact after the unloading |
+
+The trunk tilt is the angle between the gravity direction measured by the
+sensor and the gravity direction during the initial quiet stance. It does not
+depend on how the sensor is placed, and it does not use the orientation
+angles of the device.
+
+```python
+events = ci.detect_events(clean, config)
+ci.plot_events(clean, events, "results/1_1_events.png", config)
+climb = ci.get_segment(clean, events, "climb")   # also "swing" or "descent"
+```
+
+To review a whole folder:
+
+```bash
+python examples/segment_folder.py data/ config/my_config.yaml
+```
+
+This writes `results/events.csv` and one figure per file. Check each figure,
+correct the times in the CSV if needed (it opens in Excel) and write `yes` in
+the `checked` column. Then set `events_table` in your configuration: checked
+rows are always used instead of the automatic detection, so every analysis is
+reproducible.
+
+**Protocol tips** for better detection: start the recording with at least
+1-2 s of quiet standing, keep recording 2-3 s after landing, and place the
+sensor in the same way for every climber.
 
 ## Labels for each recording
 

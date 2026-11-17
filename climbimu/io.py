@@ -32,6 +32,13 @@ DEFAULT_CONFIG = {
     "sheet": 0,
     "metadata": {"filename_pattern": None, "table": None, "id_column": "file"},
     "quality": {"gap_factor": 3.0},
+    "segmentation": {
+        "reference_window_s": 0.5, "gravity_cutoff_hz": 1.0,
+        "swing_threshold_deg": 4.0, "climb_threshold_deg": 20.0,
+        "climb_min_duration_s": 1.0, "unloading_threshold_g": 0.8,
+        "unloading_min_duration_s": 0.15, "landing_search_s": 1.0,
+        "events_table": None,
+    },
     "preprocessing": {
         "despike": {"enabled": True, "window": 9, "n_sigmas": 4.0,
                     "min_threshold_g": 0.5, "min_threshold_deg": 10.0,

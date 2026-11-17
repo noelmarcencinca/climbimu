@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.0 (2026-11-17)
+
+- New `segment` module: trunk tilt from the gravity direction, semi-automatic
+  detection of swing start, climb start, climb end (start of the descent) and
+  landing.
+- Events table (CSV) to review and correct the events. Checked rows are always
+  used. Reads CSV files saved by Excel in Spanish (";" and decimal comma).
+- Cut a recording into segments (`swing`, `climb`, `descent`), with the cut
+  saved in the processing log.
+- Figure of the events and segments for visual review.
+- New example `examples/segment_folder.py` to process a whole folder.
+
 ## 0.1.0 (2026-11-17)
 
 First public version.

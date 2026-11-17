@@ -50,3 +50,17 @@ preprocessing:
     enabled: false       # filtering changes entropy values: report it if used
     cutoff_hz: 10
     order: 4
+
+# Segmentation of each attempt: swing -> climb -> descent.
+# The recording must start with the climber standing still.
+segmentation:
+  reference_window_s: 0.5        # quiet stance at the start used as reference posture
+  gravity_cutoff_hz: 1.0         # low-pass to estimate the gravity direction
+  swing_threshold_deg: 4         # tilt that marks the start of the swing
+  climb_threshold_deg: 20        # tilt that marks the climb (trunk towards the wall)
+  climb_min_duration_s: 1.0      # the tilt must stay above the threshold this long
+  unloading_threshold_g: 0.8     # body unloading when coming down from the top
+  unloading_min_duration_s: 0.15
+  landing_search_s: 1.0          # look for the landing impact within this time
+  # Table with reviewed events (CSV). Rows with checked = yes are always used.
+  events_table: null
