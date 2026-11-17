@@ -7,9 +7,9 @@ reproducible measures of movement variability and complexity (entropy) in
 climbing and bouldering. It is designed by a sport scientist for sport
 scientists and coaches: each step is simple, documented and reported.
 
-> \*\*Status:\*\* early development (version 0.1.0). The first modules (reading,
-> quality report and cleaning) work. Segmentation and entropy measures are
-> the next steps. Feedback is welcome.
+> **Status:** early development (version 0.2.0). Reading, quality report,
+> cleaning and segmentation work. Entropy measures are the next step.
+> Feedback is welcome.
 
 ## Why
 
@@ -123,15 +123,15 @@ columns (grade, boulder, sent or not...). It overrides the file name.
 
 ## Roadmap
 
-* \[x] Reading, labels, quality report, cleaning, processing log (v0.1)
-* \[ ] Segmentation: start movement, start of the climb, top and descent
-(semi-automatic, with visual confirmation)
-* \[ ] Classic measures: RMS, coefficient of variation, normalised jerk,
-number of corrections
-* \[ ] Entropy: sample entropy, multiscale entropy, permutation entropy
-* \[ ] Sensitivity analysis of entropy parameters (m, r, signal length)
-* \[ ] Batch processing of a folder and comparison by labels
-* \[ ] Automatic draft of the methods section
+- [x] Reading, labels, quality report, cleaning, processing log (v0.1)
+- [x] Segmentation: swing, start of the climb, top and descent
+      (semi-automatic, with visual review) (v0.2)
+- [ ] Classic measures: RMS, coefficient of variation, normalised jerk,
+      number of corrections
+- [ ] Entropy: sample entropy, multiscale entropy, permutation entropy
+- [ ] Sensitivity analysis of entropy parameters (m, r, signal length)
+- [ ] Batch processing of a folder and comparison by labels
+- [ ] Automatic draft of the methods section
 
 ## Data
 
