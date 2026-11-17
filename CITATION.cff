@@ -8,7 +8,7 @@ authors:
   - family-names: "Marcén-Cinca"
     given-names: "Noel"
     affiliation: "Universidad San Jorge"
-    # orcid: "https://orcid.org/0000-0002-2840-9882"
+    orcid: "https://orcid.org/0000-0002-2840-9882"
 keywords:
   - climbing
   - IMU
